@@ -116,6 +116,6 @@ function reverseString(inputString) {
      var joinArray = reverseArray.join("");
    })
 
-   var reversedString = words.join("");
+   var reversedString = words.join(" ");
    return reversedString;
 }

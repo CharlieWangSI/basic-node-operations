@@ -1,0 +1,121 @@
+> Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+A:
+
+sort commands.js: returns the file sorted alphabetically by line.
+wc commands.js: prints newline, word, and byte counts for a file.
+uniq commands.js: sorts each line in a file and only returns different lines. If there is a line in a file that is the same as a line above it, uniq removes it from the output.
+
+Charlies-MBP-2:basic-node-operations charliewang$ wc commands.js
+      42     113    1068 commands.js
+Charlies-MBP-2:basic-node-operations charliewang$ sort commands.js
+
+
+
+
+
+
+           done(data);
+           if (err) throw err;
+       break;
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       const fileName = fullPath[0];
+       done(userInput);
+       fs.readFile(fileName, (err, data) => {
+       });
+      //we will add the functionality of echo next within the object commandLibrary
+     case "cat":
+     case "echo":
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+   "cat": function(fullPath) {
+   }
+   }
+   },
+  "echo": function(userInput) {
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(" ");
+  switch (command) {
+ //parses the user input to understand which command was typed
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+Charlies-MBP-2:basic-node-operations charliewang$ uniq commands.js
+const fs = require("fs");
+
+//write out data
+function done(output) {
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+//where we will store our commands
+function evaluateCmd(userInput) {
+ //parses the user input to understand which command was typed
+  const userInputArray = userInput.split(" ");
+  const command = userInputArray[0];
+
+  switch (command) {
+     case "echo":
+      //we will add the functionality of echo next within the object commandLibrary
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+     case "cat":
+       commandLibrary.cat(userInputArray.slice(1));
+       break;
+   }
+}
+
+//where we will store the logic of our commands
+const commandLibrary = {
+  "echo": function(userInput) {
+       done(userInput);
+   },
+
+   "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+> Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+A:
+
+Charlies-MBP-2:basic-node-operations charliewang$ cat commands.js|wc
+      42     113    1068
+This chain of command shows the contents of the file and use that output to prints newline, word, and byte counts for the file commands.js
+
+> Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+A: 
+
+function reverseString(inputString) {
+   var words = inputString.split(" ");
+
+   words.forEach((word)=>{
+     var letter = word.split("");
+     var reverseArray = letter.reverse();
+     var joinArray = reverseArray.join("");
+   })
+
+   var reversedString = words.join("");
+   return reversedString;
+}
